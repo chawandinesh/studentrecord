@@ -50,7 +50,7 @@ export default function Notifications(props) {
 
   const getSpecificUsers = () => {
     if (selectedStatus === 'Received') {
-      return allUsers.filter(e => currentUser.receivedRequests.includes(e.id));
+      return currentUser.hasOwnProperty('receivedRequests') ? allUsers.filter(e => currentUser.receivedRequests.includes(e.id)) : []
     }
     if (selectedStatus === 'Approved') {
       return allUsers.filter(e => currentUser.approvedRequests.includes(e.id));
